@@ -1,0 +1,89 @@
+
+.appointment-page {
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #ffe6e6);
+    box-sizing: border-box;
+    color: #333;
+  }
+  
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .page-header h1 {
+    font-size: 2.8em;
+    color: #c62828;
+    margin-bottom: 10px;
+  }
+  
+  .page-header p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+
+  .appointment-details {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  .appointment-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .appointment-card h3 {
+    font-size: 1.8em;
+    color: #c62828;
+    margin-bottom: 20px;
+  }
+  
+  .appointment-info p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .appointment-info strong {
+    color: #c62828;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    color: #c62828;
+    font-size: 1.5em;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    color: #e63939;
+  }
+  
+
+  @media (max-width: 768px) {
+    .page-header h1 {
+      font-size: 2.2em;
+    }
+  
+    .appointment-card {
+      padding: 15px;
+    }
+  }
+  

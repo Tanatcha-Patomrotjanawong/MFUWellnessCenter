@@ -1,0 +1,183 @@
+
+.treatment-page {
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #ffe6e6);
+    box-sizing: border-box;
+    color: #333;
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .page-header h1 {
+    font-size: 2.8em;
+    color: #c62828;
+    margin-bottom: 10px;
+  }
+  
+  .page-header p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  .treatment-section {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  .treatment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .treatment-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .treatment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .treatment-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #c62828;
+  }
+  
+  .treatment-card h3 {
+    font-size: 1.6em;
+    margin: 15px;
+    color: #c62828;
+  }
+  
+  .treatment-summary {
+    margin: 15px;
+    font-size: 1em;
+    color: #777;
+  }
+  
+  .show-more {
+    margin: 15px;
+    padding: 10px 20px;
+    background-color: #c62828;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .show-more:hover {
+    background-color: #e63939;
+  }
+  
+  .modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: red;
+  }
+  
+  .appointment-form {
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  label {
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .submit-appointment {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .submit-appointment:hover {
+    background-color: #45a049; 
+  }
+  
+  .make-appointment {
+    background-color: #c62828; 
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .make-appointment:hover {
+    background-color: #e63939;
+  }
+  

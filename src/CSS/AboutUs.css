@@ -1,0 +1,77 @@
+.about-us-page {
+    font-family: 'Arial', sans-serif;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    color: #333;
+    background: linear-gradient(to bottom, #ffffff, #f3f3f3);
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-header h1 {
+    font-size: 2.5em;
+    color: #c62828;
+    margin-bottom: 15px;
+}
+
+.about-header p {
+    font-size: 1.2em;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.about-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.about-content {
+    margin-bottom: 30px;
+}
+
+.about-heading {
+    font-size: 1.8em;
+    color: #c62828;
+    margin-bottom: 15px;
+}
+
+.about-content p {
+    font-size: 1em;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-content p a {
+    color: #c62828;
+    text-decoration: underline;
+}
+
+.map-section {
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.map-heading {
+    font-size: 1.8em;
+    color: #c62828;
+    margin-bottom: 10px;
+}
+
+.map-container {
+    border: 2px solid #c62828;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+}
