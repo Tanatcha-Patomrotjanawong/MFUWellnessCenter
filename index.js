@@ -9,12 +9,14 @@ const session = require('express-session');
 app.use(express.json());
 app.use(cors({ origin: 'http://localhost:3000', credentials: true })); // Allow React frontend to connect
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Session setup
 app.use(session({
   secret: 'nodesecret',
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: false,
+    secure: false, // Change to true in production when using HTTPS
   },
 }));
 
@@ -64,12 +66,11 @@ app.post('/register', async (req, res) => {
 });
 
 // POST /login
-// POST /login
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await db.collection('users').findOne({ email });
+    const user = await User.findOne({ email }); // Use mongoose method to find user
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
@@ -80,13 +81,12 @@ app.post('/login', async (req, res) => {
     }
 
     req.session.user = user;  // Save the user to session
-    res.status(200).json({ message: 'Login successful' }); // Send success message without redirect
+    res.status(200).json({ message: 'Login successful' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
-
 
 // POST /logout
 app.post('/logout', (req, res) => {
