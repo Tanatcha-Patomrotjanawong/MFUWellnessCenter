@@ -1,6 +1,5 @@
-// App.js
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Treatments from './Pages/treatments';
@@ -10,16 +9,13 @@ import LoginPage from './Pages/login';
 import Home from './Pages/home';
 import Register from './Pages/register';
 
-
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const navigate = useNavigate();
 
   const handleLogin = () => setLoggedIn(true);
 
   const handleLogout = () => {
     setLoggedIn(false);
-    navigate('/login');  // Navigate to login page after logout
   };
 
   return (
@@ -39,7 +35,6 @@ function App() {
   );
 }
 
-// Wrap App in BrowserRouter at the export level for navigation to work properly
 function AppWithRouter() {
   return (
     <BrowserRouter>

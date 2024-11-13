@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../CSS/Treatment.css';
 import oneImage from '../components/Assets/one.jpg';
 import twoImage from '../components/Assets/two.jpg';
@@ -13,11 +14,15 @@ const TreatmentPage = () => {
     date: '',
     details: '',
   });
+  const navigate = useNavigate(); // useNavigate instead of useHistory
 
   const treatments = [
     { title: 'Acne Removal', summary: 'Brief description of Acne Removal...', details: 'Full details about Acne Removal...', image: oneImage },
     { title: 'Rejuran', summary: 'Brief description of Rejuran...', details: 'Full details about Rejuran...', image: twoImage },
     { title: 'Facial Analysis', summary: 'Brief description of Facial Analysis...', details: 'Full details about Facial Analysis...', image: threeImage },
+    { title: 'CO2 Laser', summary: 'Brief description of CO2 Laser...', details: 'Full details about CO2 Laser...', image: oneImage },
+    { title: 'Botox', summary: 'Brief description of Botox...', details: 'Full details about Botox...', image: twoImage },
+    { title: 'Filler', summary: 'Brief description of Filler...', details: 'Full details about Filler...', image: threeImage },
   ];
 
   const openModal = (treatment) => {
@@ -29,18 +34,6 @@ const TreatmentPage = () => {
     setIsModalOpen(false);
     setSelectedTreatment(null);
     setIsAppointmentPage(false);
-  };
-
-  const handleAppointmentChange = (e) => {
-    const { name, value } = e.target;
-    setAppointmentData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleMakeAppointment = () => {
-    setIsAppointmentPage(true);
   };
 
   const handleAppointmentSubmit = async (e) => {
@@ -61,6 +54,9 @@ const TreatmentPage = () => {
 
       if (response.ok) {
         alert(data.message);
+        // Navigate to the AppointmentPage and pass the appointment data
+        navigate('/appointment', { state: { appointment: appointmentData } });
+
         setIsAppointmentPage(false);
         closeModal(); // Close modal after successful submission
       } else {
@@ -109,7 +105,7 @@ const TreatmentPage = () => {
                       id="name"
                       name="name"
                       value={appointmentData.name}
-                      onChange={handleAppointmentChange}
+                      onChange={(e) => setAppointmentData({ ...appointmentData, name: e.target.value })}
                       required
                     />
                   </div>
@@ -120,7 +116,7 @@ const TreatmentPage = () => {
                       id="appointment-date"
                       name="date"
                       value={appointmentData.date}
-                      onChange={handleAppointmentChange}
+                      onChange={(e) => setAppointmentData({ ...appointmentData, date: e.target.value })}
                       required
                     />
                   </div>
@@ -130,7 +126,7 @@ const TreatmentPage = () => {
                       id="appointment-details"
                       name="details"
                       value={appointmentData.details}
-                      onChange={handleAppointmentChange}
+                      onChange={(e) => setAppointmentData({ ...appointmentData, details: e.target.value })}
                     />
                   </div>
                   <button type="submit" className="submit-button">Submit Appointment</button>
@@ -140,7 +136,7 @@ const TreatmentPage = () => {
               <div>
                 <h2>{selectedTreatment.title}</h2>
                 <p>{selectedTreatment.details}</p>
-                <button onClick={handleMakeAppointment} className="make-appointment">
+                <button onClick={() => setIsAppointmentPage(true)} className="make-appointment">
                   Make Appointment
                 </button>
               </div>

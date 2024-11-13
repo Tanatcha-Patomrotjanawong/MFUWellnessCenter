@@ -45,11 +45,10 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .treatment-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text content */
   }
   
   .treatment-image {
@@ -61,7 +60,7 @@
   
   .treatment-card h3 {
     font-size: 1.6em;
-    margin: 15px;
+    margin: 15px 0;
     color: #c62828;
   }
   
@@ -69,10 +68,12 @@
     margin: 15px;
     font-size: 1em;
     color: #777;
+    max-width: 80%; /* Restrict width to keep text more centered */
   }
   
   .show-more {
-    margin: 15px;
+    margin-top: auto; /* Pushes button to the bottom */
+    margin-bottom: 15px;
     padding: 10px 20px;
     background-color: #c62828;
     color: white;
@@ -81,10 +82,6 @@
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
-  }
-  
-  .show-more:hover {
-    background-color: #e63939;
   }
   
   .modal {

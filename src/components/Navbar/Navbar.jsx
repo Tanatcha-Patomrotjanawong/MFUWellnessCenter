@@ -1,6 +1,5 @@
-// Navbar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = ({ loggedIn, onLogout }) => {
@@ -8,14 +7,14 @@ const Navbar = ({ loggedIn, onLogout }) => {
     <nav className="navbar">
       <div className="navbar-left">
         <div className="logo">
-          <Link to="/home"></Link>
+          <NavLink to="/home"></NavLink>
         </div>
       </div>
       <div className="navbar-right">
-        <Link to="/home" className="navbar-link">Home</Link>
-        <Link to="/treatments" className="navbar-link">Treatments</Link>
-        <Link to="/appointment" className="navbar-link">Appointment</Link>
-        <Link to="/about" className="navbar-link">About Us</Link>
+        <NavLink to="/home" className="navbar-link" activeClassName="active">Home</NavLink>
+        <NavLink to="/treatments" className="navbar-link" activeClassName="active">Treatments</NavLink>
+        <NavLink to="/appointment" className="navbar-link" activeClassName="active">Appointment</NavLink>
+        <NavLink to="/about" className="navbar-link" activeClassName="active">About Us</NavLink>
         {loggedIn ? (
           <button
             onClick={onLogout}
@@ -25,7 +24,7 @@ const Navbar = ({ loggedIn, onLogout }) => {
             Logout
           </button>
         ) : (
-          <Link to="/login" className="navbar-link navbar-login">Login</Link>
+          <NavLink to="/login" className="navbar-link navbar-login" activeClassName="active">Login</NavLink>
         )}
       </div>
     </nav>
