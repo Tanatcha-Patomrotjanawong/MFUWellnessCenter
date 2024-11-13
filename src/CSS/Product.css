@@ -143,7 +143,7 @@
   
   input,
   textarea {
-    width: 100%;
+    width: 95%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -155,7 +155,7 @@
   }
   
   .submit-preorder {
-    background-color: #4caf50;
+    background-color: #c62828;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -165,7 +165,7 @@
   }
   
   .submit-preorder:hover {
-    background-color: #45a049;
+    background-color: #e63939;
   }
   
   .product-image {

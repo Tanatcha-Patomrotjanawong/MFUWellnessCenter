@@ -1,6 +1,7 @@
 .register-page {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #ffffff, #f3f3f3);
+    background: url('../components/Assets/bg.jpg') no-repeat center center fixed; /* Correct path to the image */
+    background-size: cover; 
     display: flex;
     justify-content: center;
     align-items: center;

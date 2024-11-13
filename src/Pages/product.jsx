@@ -18,8 +18,8 @@ const ProductPage = () => {
       image: P1,
     },
     {
-      name: 'Product 2',
-      price: 150,
+      name: 'Eucerin DermoPurifyer Triple Effect Serum 40ml',
+      price: 740.00,
       image: P2,
     },
   ];

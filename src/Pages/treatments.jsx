@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../CSS/Treatment.css';
-import oneImage from '../components/Assets/one.jpg';
-import twoImage from '../components/Assets/two.jpg';
-import threeImage from '../components/Assets/three.jpg';
-import fourImage from '../components/Assets/four.jpg';
-import fiveImage from '../components/Assets/five.jpg';
-import sixImage from '../components/Assets/six.jpg';
-import sevenImage from '../components/Assets/seven.jpg';
 import eightImage from '../components/Assets/eight.jpg';
+import fiveImage from '../components/Assets/five.jpg';
+import fourImage from '../components/Assets/four.jpg';
 import nineImage from '../components/Assets/nine.jpg';
+import oneImage from '../components/Assets/one.jpg';
+import sevenImage from '../components/Assets/seven.jpg';
+import sixImage from '../components/Assets/six.jpg';
+import threeImage from '../components/Assets/three.jpg';
+import twoImage from '../components/Assets/two.jpg';
 
 const TreatmentPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

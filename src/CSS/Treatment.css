@@ -135,7 +135,7 @@
 
 
 .appointment-modal {
-    max-width: 400px; 
+    max-width: 300px; 
     padding: 30px 20px; 
 }
   
@@ -165,7 +165,7 @@
 
   
 .appointment-form {
-    width: 100%;
+    width: 95%;
 }
   
 .form-group {
