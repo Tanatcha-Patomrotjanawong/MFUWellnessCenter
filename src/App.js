@@ -8,6 +8,7 @@ import About from './Pages/about';
 import LoginPage from './Pages/login';
 import Home from './Pages/home';
 import Register from './Pages/register';
+import Product from './Pages/product';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/product" element={<Product />} />
         <Route path="/treatments" element={<Treatments />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/about" element={<About />} />

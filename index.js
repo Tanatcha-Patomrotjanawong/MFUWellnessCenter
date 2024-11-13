@@ -42,6 +42,7 @@ const appointmentSchema = new mongoose.Schema({
   name: String,
   date: Date,
   details: String,
+  time: String,
 });
 const Appointment = mongoose.model('Appointment', appointmentSchema);
 
@@ -100,10 +101,10 @@ app.post('/logout', (req, res) => {
 
 // POST /appointment - Create new appointment
 app.post('/appointment', async (req, res) => {
-  const { name, date, details } = req.body;
+  const { name, date, details,time } = req.body;
 
   try {
-    const appointment = new Appointment({ name, date, details });
+    const appointment = new Appointment({ name, date, details, time });
     await appointment.save();
 
     res.status(201).json({ message: 'Appointment scheduled successfully' });

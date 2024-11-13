@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import '../CSS/Treatment.css';
 import oneImage from '../components/Assets/one.jpg';
 import twoImage from '../components/Assets/two.jpg';
 import threeImage from '../components/Assets/three.jpg';
+import fourImage from '../components/Assets/four.jpg';
+import fiveImage from '../components/Assets/five.jpg';
+import sixImage from '../components/Assets/six.jpg';
+import sevenImage from '../components/Assets/seven.jpg';
+import eightImage from '../components/Assets/eight.jpg';
+import nineImage from '../components/Assets/nine.jpg';
 
 const TreatmentPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,16 +19,29 @@ const TreatmentPage = () => {
     name: '',
     date: '',
     details: '',
+    time: '',
   });
-  const navigate = useNavigate(); // useNavigate instead of useHistory
+  const navigate = useNavigate();
 
   const treatments = [
-    { title: 'Acne Removal', summary: 'Brief description of Acne Removal...', details: 'Full details about Acne Removal...', image: oneImage },
-    { title: 'Rejuran', summary: 'Brief description of Rejuran...', details: 'Full details about Rejuran...', image: twoImage },
-    { title: 'Facial Analysis', summary: 'Brief description of Facial Analysis...', details: 'Full details about Facial Analysis...', image: threeImage },
-    { title: 'CO2 Laser', summary: 'Brief description of CO2 Laser...', details: 'Full details about CO2 Laser...', image: oneImage },
-    { title: 'Botox', summary: 'Brief description of Botox...', details: 'Full details about Botox...', image: twoImage },
-    { title: 'Filler', summary: 'Brief description of Filler...', details: 'Full details about Filler...', image: threeImage },
+    {
+      title: 'Acne Removal',
+      summary: 'เป็นการรักษาสิวอักเสบ บวมแดง รู้สึกเจ็บ เหมาะกับผู้ที่อยากให้สิวยุบหายเร็วขึ้น...',
+      details: `เป็นการรักษาสิวอักเสบ บวมแดง รู้สึกเจ็บ เหมาะกับผู้ที่อยากให้สิวยุบหายเร็วขึ้น ลดการอักเสบ 
+                ช่วยลดความเสี่ยงจากการเกิดหลุมสิว\n\n
+                บริการกดสิวและฉีดสิวมีให้บริการแล้วที่ คลินิกเวชศาสตร์ชะลอวัยและความงาม ศูนย์บริการสุขภาพ 
+                มหาวิทยาลัยแม่ฟ้าหลวง จังหวัดเชียงราย\n\n
+                อัตราค่าบริการ: 150 บาทต่อครั้ง`,
+      image: oneImage,
+    },
+    { title: 'Rejuran', summary: 'รีจูรัน (Rejuran) คือโปรแกรมเมโสหน้าใส (MESOTHERAPY) ที่มุ่งเน้นการบำรุงผิว...', details: 'Full details about Rejuran...', image: twoImage },
+    { title: 'Facial Analysis', summary: 'Facial analysis เป็นกระบวนการตรวจวิเคราะห์ผิวหน้าที่ประกอบด้วย 7 รูปแบบหลัก...', details: 'Full details about Facial Analysis...', image: threeImage },
+    { title: 'CO2 Laser', summary: 'CO2 Laser จะใช้ก๊าซคาร์บอนไดออกไซด์ (CO2) เป็นตัวกลางในการผลิตแสงเลเซอร์...', details: 'Full details about CO2 Laser...', image: fourImage },
+    { title: 'Botox', summary: 'โบท็อกซ์ (Botox) คือ สารสกัดจากแบคทีเรียคลอสตริเดียม โบทูลินัม...', details: 'Full details about Botox...', image: fiveImage },
+    { title: 'Filler', summary: 'การฉีดฟิลเลอร์เป็นวิธีที่ใช้สำหรับรักษาริ้วรอยและร่องลึกต่าง ๆ บนใบหน้า...', details: 'Full details about Filler...', image: sixImage },
+    { title: 'Laser 585', summary: 'เลเซอร์ 585 นาโนเมตร เป็นเทคโนโลยีที่มีประสิทธิภาพในการรักษาปัญหาผิวหนัง...', details: 'Full details about Laser 585...', image: nineImage },
+    { title: 'Long Pulse ND YAG', summary: 'Long Pulse ND YAG เป็นเลเซอร์กำจัดขนที่มีความปลอดภัยสูงและสามารถใช้ได้กับทุกสีผิว...', details: 'Full details about Long Pulse ND YAG...', image: eightImage },
+    { title: 'Keloid', summary: 'คีลอยด์ คือ ประเภทของรอยแผลเป็นชนิดหนึ่ง มีลักษณะเป็นแผลนูน...', details: 'Full details about Keloid...', image: sevenImage },
   ];
 
   const openModal = (treatment) => {
@@ -54,11 +73,9 @@ const TreatmentPage = () => {
 
       if (response.ok) {
         alert(data.message);
-        // Navigate to the AppointmentPage and pass the appointment data
         navigate('/appointment', { state: { appointment: appointmentData } });
-
         setIsAppointmentPage(false);
-        closeModal(); // Close modal after successful submission
+        closeModal();
       } else {
         alert(data.message || 'Error submitting appointment');
       }
@@ -117,6 +134,17 @@ const TreatmentPage = () => {
                       name="date"
                       value={appointmentData.date}
                       onChange={(e) => setAppointmentData({ ...appointmentData, date: e.target.value })}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="appointment-time">Choose a Time:</label>
+                    <input
+                      type="time"
+                      id="appointment-time"
+                      name="time"
+                      value={appointmentData.time}
+                      onChange={(e) => setAppointmentData({ ...appointmentData, time: e.target.value })}
                       required
                     />
                   </div>

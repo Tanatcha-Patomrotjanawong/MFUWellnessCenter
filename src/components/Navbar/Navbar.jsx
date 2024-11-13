@@ -12,6 +12,7 @@ const Navbar = ({ loggedIn, onLogout }) => {
       </div>
       <div className="navbar-right">
         <NavLink to="/home" className="navbar-link" activeClassName="active">Home</NavLink>
+        <NavLink to="/product" className="navbar-link" activeClassName="active">Product</NavLink>
         <NavLink to="/treatments" className="navbar-link" activeClassName="active">Treatments</NavLink>
         <NavLink to="/appointment" className="navbar-link" activeClassName="active">Appointment</NavLink>
         <NavLink to="/about" className="navbar-link" activeClassName="active">About Us</NavLink>

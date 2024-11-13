@@ -1,10 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './Hep.css';
 import yogaImg from '../Assets/one.jpg';
 import spaImg from '../Assets/two.jpg';
 import wellnessImg from '../Assets/three.jpg';
 
 const Hep = () => {
+  const navigate = useNavigate(); 
+
+  const handleViewPackagesClick = () => {
+    navigate('/treatments'); 
+  };
+
   return (
     <div className="homepage">
       <div className="hero-section">
@@ -12,7 +19,7 @@ const Hep = () => {
           <h1>MFU Wellness Center</h1>
           <p className="subtext">ศูนย์บริการสุขภาพแบบครบวงจรแห่งภาคเหนือและอนุภาคลุ่มแม่น้ำโขง</p>
           <p className="subtext">มหาวิทยาลัยแม่ฟ้าหลวง</p>
-          <button className="shop-button">Read More</button>
+          <button className="shop-button" onClick={() => window.open('https://wellness.mfu.ac.th/wellness-home.html', '_blank')}>Read More</button>
         </div>
         <div className="hero-image"></div>
       </div>
@@ -25,22 +32,21 @@ const Hep = () => {
             <img src={yogaImg} alt="Yoga Class" className="promo-image" />
             <h3>Acne Removal</h3>
             <p>การกดฉีดสิว เป็นการรักษาสิวอักเสบ บวมแดง รู้สึกเจ็บ เหมาะกับผู้ที่อยากให้สิวยุบหายเร็วขึ้น ลดการอักเสบ ช่วยลดความเสี่ยงจากการเกิดหลุมสิว</p>
-            <button>Read More</button>
+            <button onClick={handleViewPackagesClick}>View Packages</button>
           </div>
           <div className="promo-card">
             <span className="discount-badge">15% OFF</span>
             <img src={spaImg} alt="Spa Packages" className="promo-image" />
             <h3>Rejuran</h3>
             <p>มุ่งเน้นการบำรุงผิวโดยการฉีดตัวยาเข้าสู่ชั้นผิวหนังโดยตรง เพิ่มคอลลาเจนให้กับผิว ช่วยฟื้นฟูและแก้ไขปัญหาสุขภาพผิวที่หลากหลาย</p>
-            <button>View Packages</button>
+            <button onClick={handleViewPackagesClick}>View Packages</button>
           </div>
           <div className="promo-card">
             <span className="discount-badge">10% OFF</span>
             <img src={wellnessImg} alt="Wellness Plans" className="promo-image" />
             <h3>Facial analysis</h3>
-            <p>ผู้เชี่ยวชาญจะช่วยประเมินสภาพผิวหน้าอย่างละเอียด เพื่อวางแผนการดูแลและรักษาผิวที่เหมาะสมกับปัญหาของแต่ละบุคคล
-            </p>
-            <button>Get Started</button>
+            <p>ผู้เชี่ยวชาญจะช่วยประเมินสภาพผิวหน้าอย่างละเอียด เพื่อวางแผนการดูแลและรักษาผิวที่เหมาะสมกับปัญหาของแต่ละบุคคล</p>
+            <button onClick={handleViewPackagesClick}>View Packages</button>
           </div>
         </div>
       </div>

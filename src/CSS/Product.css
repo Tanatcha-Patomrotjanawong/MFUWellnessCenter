@@ -1,4 +1,4 @@
-.treatment-page {
+.product-page {
     width: 100%;
     padding-top: 80px;
     padding-bottom: 40px;
@@ -9,39 +9,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
   
-.page-header {
+  .page-header {
     text-align: center;
     margin-bottom: 40px;
-}
+  }
   
-.page-header h1 {
+  .page-header h1 {
     font-size: 2.8em;
     color: #c62828;
     margin-bottom: 10px;
-}
+  }
   
-.page-header p {
+  .page-header p {
     font-size: 1.2em;
     color: #666;
-}
+  }
   
-.treatment-section {
+  .product-section {
     display: flex;
     justify-content: center;
     padding: 0 20px;
-}
+  }
   
-.treatment-grid {
+  .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     max-width: 1200px;
     width: 100%;
-}
+  }
   
-.treatment-card {
+  .product-card {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -53,46 +53,34 @@
     text-align: center;
     cursor: pointer;
     position: relative;
-}
+  }
   
-.treatment-card:hover {
+  .product-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
+  }
   
-.treatment-image {
+  .product-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-bottom: 3px solid #c62828;
-    transition: transform 0.3s ease;
-}
+  }
   
-.treatment-card:hover .treatment-image {
-    transform: scale(1.05);
-}
-  
-.treatment-card h3 {
+  .product-card h3 {
     font-size: 1.6em;
     margin: 15px 0;
     color: #c62828;
-    transition: color 0.3s ease;
-}
+  }
   
-.treatment-card h3:hover {
-    color: #e63939;
-}
-  
-.treatment-summary {
-    margin: 15px;
-    font-size: 1em;
+  .product-price {
+    font-size: 1.2em;
+    margin: 10px 0;
     color: #777;
-    max-width: 80%;
-}
+  }
   
-.show-more {
+  .pre-order {
     margin-top: auto;
-    margin-bottom: 15px;
     padding: 10px 20px;
     background-color: #c62828;
     color: white;
@@ -100,15 +88,13 @@
     border-radius: 6px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+  }
   
-.show-more:hover {
+  .pre-order:hover {
     background-color: #e63939;
-    transform: translateY(-3px);
-}
+  }
   
-.modal {
+  .modal {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,81 +105,56 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
-}
+  }
   
-.modal-content {
+  .modal-content {
     background-color: white;
-    padding: 60px 50px;
+    padding: 40px 50px;
     border-radius: 15px;
-    max-width: 800px; /* This is for the "See More" modal */
+    max-width: 800px;
     width: 100%;
     text-align: left;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 0.3s ease;
-}
-
-
-.appointment-modal {
-    max-width: 400px; 
-    padding: 30px 20px; 
-}
+  }
   
-.close {
+  .close {
     position: absolute;
     top: 20px;
     right: 20px;
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-}
+  }
   
-.close:hover {
+  .close:hover {
     color: red;
-}
+  }
   
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-  
-.appointment-form {
-    width: 100%;
-}
-  
-.form-group {
+  .form-group {
     margin-bottom: 25px;
-    text-align: left;
-}
+  }
   
-label {
+  label {
     font-size: 1.1em;
     display: block;
     margin-bottom: 8px;
     color: #333;
-}
+  }
   
-input,
-textarea {
+  input,
+  textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1em;
-}
+  }
   
-textarea {
+  textarea {
     resize: vertical;
-}
+  }
   
-.submit-appointment {
+  .submit-preorder {
     background-color: #4caf50;
     color: white;
     border: none;
@@ -201,39 +162,39 @@ textarea {
     font-size: 1.2em;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+  }
   
-.submit-appointment:hover {
+  .submit-preorder:hover {
     background-color: #45a049;
-    transform: scale(1.05);
-}
+  }
   
-.make-appointment {
-    background-color: #c62828;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+  .product-image {
+    width: 100%;  
+    height: auto; 
+  }
   
-.make-appointment:hover {
-    background-color: #e63939;
-    transform: translateY(-3px);
-}
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    background-color: #fff;
+  }
   
-.modal-content h2 {
-    font-size: 2.2em;
+  .product-price {
+    font-size: 18px;
     color: #c62828;
-    margin-bottom: 20px;
-}
+    margin-top: 10px;
+  }
   
-.modal-content p {
-    font-size: 1.1em;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
+  .modal-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  

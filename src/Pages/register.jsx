@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../CSS/Register.css';
 
 function Register() {
   const [name, setName] = useState('');
@@ -19,14 +20,14 @@ function Register() {
         password
       });
 
-      // Check if registration was successful
+
       if (response.status === 201) {
         setMessage(response.data.message);
 
-        // Wait for 2 seconds before redirecting
+
         setTimeout(() => {
-          navigate('/login'); // Redirect to /login on success
-        }, 2000); // 2000ms = 2 seconds
+          navigate('/login'); 
+        }, 2000); 
       }
     } catch (error) {
       setMessage(error.response?.data?.message || 'Registration failed');
@@ -34,33 +35,46 @@ function Register() {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Register</button>
-      </form>
-      {message && <p>{message}</p>}
+    <div className="register-page">
+      <div className="register-container">
+        <div className="register-header">
+          <h2>Register</h2>
+        </div>
+        <form onSubmit={handleRegister}>
+          <div className="input-group">
+            <label>Name</label>
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="submit-button">Register</button>
+        </form>
+        {message && <p className="message">{message}</p>}
+      </div>
     </div>
   );
 }

@@ -18,7 +18,9 @@ const AppointmentPage = () => {
         <p><strong>Name:</strong> {appointmentData.name}</p>
         <p><strong>Date:</strong> {new Date(appointmentData.date).toLocaleDateString()}</p>
         <p><strong>Details:</strong> {appointmentData.details}</p>
+        <p><strong>Time:</strong> {appointmentData.time}</p> 
       </div>
+
       <button className="appointment-button" onClick={() => navigate(-1)}>Go Back</button>
     </div>
   );
