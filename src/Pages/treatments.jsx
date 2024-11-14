@@ -28,12 +28,13 @@ const TreatmentPage = () => {
       title: 'Acne Removal',
       summary: 'เป็นการรักษาสิวอักเสบ บวมแดง รู้สึกเจ็บ เหมาะกับผู้ที่อยากให้สิวยุบหายเร็วขึ้น...',
       details: `เป็นการรักษาสิวอักเสบ บวมแดง รู้สึกเจ็บ เหมาะกับผู้ที่อยากให้สิวยุบหายเร็วขึ้น ลดการอักเสบ 
-                ช่วยลดความเสี่ยงจากการเกิดหลุมสิว\n\n
-                บริการกดสิวและฉีดสิวมีให้บริการแล้วที่ คลินิกเวชศาสตร์ชะลอวัยและความงาม ศูนย์บริการสุขภาพ 
-                มหาวิทยาลัยแม่ฟ้าหลวง จังหวัดเชียงราย\n\n
-                อัตราค่าบริการ: 150 บาทต่อครั้ง`,
+            ช่วยลดความเสี่ยงจากการเกิดหลุมสิว<br /><br />
+            บริการกดสิวและฉีดสิวมีให้บริการแล้วที่ คลินิกเวชศาสตร์ชะลอวัยและความงาม ศูนย์บริการสุขภาพ 
+            มหาวิทยาลัยแม่ฟ้าหลวง จังหวัดเชียงราย<br /><br />
+            <div class="price-highlight">อัตราค่าบริการ: 150 บาทต่อครั้ง</div><br /><br />`,
       image: oneImage,
     },
+
     { title: 'Rejuran', summary: 'รีจูรัน (Rejuran) คือโปรแกรมเมโสหน้าใส (MESOTHERAPY) ที่มุ่งเน้นการบำรุงผิว...', details: 'Full details about Rejuran...', image: twoImage },
     { title: 'Facial Analysis', summary: 'Facial analysis เป็นกระบวนการตรวจวิเคราะห์ผิวหน้าที่ประกอบด้วย 7 รูปแบบหลัก...', details: 'Full details about Facial Analysis...', image: threeImage },
     { title: 'CO2 Laser', summary: 'CO2 Laser จะใช้ก๊าซคาร์บอนไดออกไซด์ (CO2) เป็นตัวกลางในการผลิตแสงเลเซอร์...', details: 'Full details about CO2 Laser...', image: fourImage },
@@ -163,7 +164,7 @@ const TreatmentPage = () => {
             ) : (
               <div>
                 <h2>{selectedTreatment.title}</h2>
-                <p>{selectedTreatment.details}</p>
+                <div dangerouslySetInnerHTML={{ __html: selectedTreatment.details }} />
                 <button onClick={() => setIsAppointmentPage(true)} className="make-appointment">
                   Make Appointment
                 </button>

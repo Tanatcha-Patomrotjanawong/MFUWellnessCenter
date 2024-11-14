@@ -46,6 +46,17 @@ const appointmentSchema = new mongoose.Schema({
 });
 const Appointment = mongoose.model('Appointment', appointmentSchema);
 
+// Updated product schema
+const productSchema = new mongoose.Schema({
+  name: String, // Product name
+  price: Number, // Product price
+  quantity: String, // Order quantity
+  details: String, // Additional order details
+});
+const Product = mongoose.model('Product', productSchema);
+
+
+
 // POST /register
 app.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
@@ -99,7 +110,36 @@ app.post('/logout', (req, res) => {
   });
 });
 
-// POST /appointment - Create new appointment
+// POST /product - create
+app.post('/product', async (req, res) => {
+  const { name, price, quantity, details } = req.body; // Updated to match corrected schema
+
+  try {
+    const product = new Product({ name, price, quantity, details });
+    await product.save();
+
+    res.status(201).json({ message: 'Product ordered successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+app.post('/preorder', async (req, res) => {
+  const { name, price, quantity, details } = req.body;
+
+  try {
+    const product = new Product({ name, price, quantity, details });
+    await product.save();
+
+    res.status(201).json({ message: 'Product ordered successfully', orderId: product._id });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+
 app.post('/appointment', async (req, res) => {
   const { name, date, details,time } = req.body;
 

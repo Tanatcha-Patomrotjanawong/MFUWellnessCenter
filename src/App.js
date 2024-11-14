@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
@@ -8,7 +9,9 @@ import About from './Pages/about';
 import LoginPage from './Pages/login';
 import Home from './Pages/home';
 import Register from './Pages/register';
-import Product from './Pages/product';
+import ProductPage from './Pages/ProductPage';
+import ThankYouPage from './Pages/ThankYouPage';
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -25,12 +28,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/product" element={<Product />} />
         <Route path="/treatments" element={<Treatments />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/product" element={<ProductPage />} />
+        <Route path="/thankyou" element={<ThankYouPage />} />
       </Routes>
       <Footer />
     </div>

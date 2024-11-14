@@ -225,15 +225,40 @@ textarea {
     transform: translateY(-3px);
 }
   
-.modal-content h2 {
-    font-size: 2.2em;
-    color: #c62828;
-    margin-bottom: 20px;
+.modal-content {
+    background-color: white;
+    padding: 70px 60px; /* Increased padding for more spacing */
+    border-radius: 20px;
+    max-width: 1000px; /* Increase max-width to make the modal wider */
+    width: 90%;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
 }
-  
+
+.modal-content h2 {
+    font-size: 2.5em; /* Make title slightly larger */
+    color: #c62828;
+    margin-bottom: 25px;
+}
+
 .modal-content p {
-    font-size: 1.1em;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    font-size: 1.3em; /* Increase text size */
+    color: #555;
+    line-height: 1.8; /* More line spacing for better readability */
+    margin-bottom: 35px;
+    white-space: pre-line; /* Preserve line breaks */
+}
+
+.price-highlight {
+    color: #c62828;
+    font-weight: bold;
+    font-size: 1.4em;
+    display: block; /* Force to a new line */
+    margin-top: 20px; /* Add space above the price */
+}
+
+.appointment-form {
+    width: 100%; /* Make form take the full width */
 }

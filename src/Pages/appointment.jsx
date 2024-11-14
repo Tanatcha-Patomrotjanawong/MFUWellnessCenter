@@ -1,14 +1,13 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import '../CSS/AppointmentPage.css';
 
 const AppointmentPage = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const appointmentData = location.state?.appointment;
 
   if (!appointmentData) {
-    return <p className="no-appointment">No appointment data available.</p>;
+    return <p className="no-appointment">No appointment.</p>;
   }
 
   return (
@@ -20,8 +19,6 @@ const AppointmentPage = () => {
         <p><strong>Details:</strong> {appointmentData.details}</p>
         <p><strong>Time:</strong> {appointmentData.time}</p> 
       </div>
-
-      <button className="appointment-button" onClick={() => navigate(-1)}>Go Back</button>
     </div>
   );
 };
