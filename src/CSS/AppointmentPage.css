@@ -1,19 +1,28 @@
 .appointment-page {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh; 
     padding: 50px 20px;
     background: linear-gradient(to bottom, #ffffff, #ffe6e6);
     font-family: Arial, sans-serif;
     color: #333;
   }
   
-
   .appointment-title {
     font-size: 2.8em;
     color: #c62828;
     margin-bottom: 20px;
     text-align: center;
+  }
+  
+  .appointment-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    width: 100%;
   }
   
   .appointment-details {
@@ -23,7 +32,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
-    margin-bottom: 40px;
     font-size: 1.1em;
     color: #666;
   }
@@ -51,11 +59,14 @@
     background-color: #e63939;
   }
   
-
   .no-appointment {
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: #777;
     text-align: center;
-    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin-top: 0;
   }
   

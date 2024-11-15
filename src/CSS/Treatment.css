@@ -227,15 +227,27 @@ textarea {
   
 .modal-content {
     background-color: white;
-    padding: 70px 60px; /* Increased padding for more spacing */
-    border-radius: 20px;
-    max-width: 1000px; /* Increase max-width to make the modal wider */
-    width: 90%;
+    padding: 50px 40px;
+    border-radius: 15px;
+    max-width: 80vw; /* Set to 80% of viewport width for a wider modal */
+    width: 80%; /* Set to 80% to take more space */
+    max-height: 90vh; /* Limit height to 90% of viewport */
+    height: auto; /* Allows it to expand based on content */
     text-align: left;
     position: relative;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.3s ease;
+    overflow-y: auto; /* Enable vertical scrolling for overflow content */
 }
+
+@media (max-width: 1000px) {
+    .modal-content {
+        max-width: 200vw; /* Adjust width for smaller screens */
+        padding: 30px 20px; /* Reduce padding for better mobile fit */
+    }
+}
+
+
 
 .modal-content h2 {
     font-size: 2.5em; /* Make title slightly larger */

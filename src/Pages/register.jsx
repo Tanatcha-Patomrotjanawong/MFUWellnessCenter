@@ -8,7 +8,7 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // useNavigate hook for redirection
+  const navigate = useNavigate(); 
 
   const handleRegister = async (e) => {
     e.preventDefault();

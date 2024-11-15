@@ -7,7 +7,11 @@ const AppointmentPage = () => {
   const appointmentData = location.state?.appointment;
 
   if (!appointmentData) {
-    return <p className="no-appointment">No appointment.</p>;
+    return (
+      <div className="appointment-page">
+        <p className="no-appointment">No appointment.</p>
+      </div>
+    );
   }
 
   return (

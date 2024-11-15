@@ -7,7 +7,11 @@ const ThankYouPage = () => {
   const { orderDetails } = location.state || {};
 
   if (!orderDetails) {
-    return <p className="no-order">Order details not available.</p>;
+    return (
+      <div className="thank-you-page">
+        <p className="no-order">Order not available.</p>
+      </div>
+    );
   }
 
   return (

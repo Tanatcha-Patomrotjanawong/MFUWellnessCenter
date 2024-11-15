@@ -70,7 +70,7 @@ const ProductPage = () => {
     <div className="product-page">
       <header className="page-header">
         <h1>Our Products</h1>
-        <p>Select the products you love and place your pre-order.</p>
+        <p>Select the product for pre-order.</p>
       </header>
 
       <section className="product-section">
