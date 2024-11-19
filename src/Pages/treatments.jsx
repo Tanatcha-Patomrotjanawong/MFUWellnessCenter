@@ -125,12 +125,12 @@ image: threeImage, },
 
   const handleAppointmentSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!appointmentData.name || !appointmentData.date) {
       alert('Please fill out all fields!');
       return;
     }
-
+  
     try {
       const response = await fetch('http://localhost:4000/appointment', {
         method: 'POST',
@@ -138,10 +138,18 @@ image: threeImage, },
         body: JSON.stringify(appointmentData),
       });
       const data = await response.json();
-
+  
       if (response.ok) {
         alert(data.message);
-        navigate('/appointment', { state: { appointment: appointmentData } });
+        
+        // Retrieve current appointments from localStorage
+        const currentAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
+        // Add the new appointment
+        const updatedAppointments = [...currentAppointments, appointmentData];
+        // Save back to localStorage
+        localStorage.setItem('appointments', JSON.stringify(updatedAppointments));
+  
+        navigate('/appointment');
         setIsAppointmentPage(false);
         closeModal();
       } else {
@@ -152,7 +160,7 @@ image: threeImage, },
       alert('An error occurred while scheduling the appointment.');
     }
   };
-
+  
   return (
     <div className="treatment-page">
       <header className="page-header">

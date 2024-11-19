@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../CSS/Product.css';  
 import P1 from '../components/Assets/p1.jpg';
@@ -14,7 +14,7 @@ const ProductPage = () => {
   const products = [
     {
       name: 'Eucerin DERMOPURE Cleansing Gel 200ml',
-      price: 630.00,
+      price: 630.0,
       image: P1,
     },
     {
@@ -36,27 +36,35 @@ const ProductPage = () => {
 
   const handlePreOrder = async (e) => {
     e.preventDefault();
-
+  
     if (!quantity || !details) {
       alert('Please fill out all fields!');
       return;
     }
-
+  
+    const newOrder = {
+      product: selectedProduct,
+      quantity,
+      details,
+      orderId: Math.random().toString(36).substr(2, 9), // Generate a unique order ID
+    };
+  
     try {
       const response = await fetch('http://localhost:4000/preorder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          product: selectedProduct,
-          quantity,
-          details,
-        }),
+        body: JSON.stringify(newOrder),
       });
-
+  
       const data = await response.json();
       if (response.ok) {
+        // Retrieve existing orders and append the new one
+        const existingOrders = JSON.parse(localStorage.getItem('preOrderList')) || [];
+        const updatedOrders = [...existingOrders, { ...newOrder, ...data }];
+        localStorage.setItem('preOrderList', JSON.stringify(updatedOrders));
+  
         setIsModalOpen(false);
-        navigate('/thankyou', { state: { orderDetails: { ...data, product: selectedProduct, quantity, details } } });
+        navigate('/thankyou');
       } else {
         alert(data.message || 'Error submitting pre-order');
       }
@@ -65,6 +73,15 @@ const ProductPage = () => {
       alert('An error occurred while submitting the pre-order.');
     }
   };
+
+  useEffect(() => {
+    const savedDetails = JSON.parse(localStorage.getItem('preOrderDetails'));
+    if (savedDetails) {
+      setSelectedProduct(savedDetails.product);
+      setQuantity(savedDetails.quantity);
+      setAdditionalDetails(savedDetails.details);
+    }
+  }, []);
 
   return (
     <div className="product-page">

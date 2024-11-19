@@ -1,28 +1,57 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { FaTrash } from 'react-icons/fa';
 import '../CSS/AppointmentPage.css';
 
 const AppointmentPage = () => {
-  const location = useLocation();
-  const appointmentData = location.state?.appointment;
+  const [appointments, setAppointments] = useState(() => {
+    try {
+      const savedAppointments = localStorage.getItem('appointments');
+      return savedAppointments ? JSON.parse(savedAppointments) : [];
+    } catch (error) {
+      console.error('Error reading appointments from localStorage:', error);
+      return [];
+    }
+  });
 
-  if (!appointmentData) {
+  useEffect(() => {
+    localStorage.setItem('appointments', JSON.stringify(appointments));
+  }, [appointments]);
+
+  const deleteAppointment = (indexToDelete) => {
+    const updatedAppointments = appointments.filter((_, index) => index !== indexToDelete);
+    setAppointments(updatedAppointments);
+  };
+
+  const renderAppointmentList = () => {
+    if (appointments.length === 0) {
+      return <p className="no-appointment">Not found an appointment, please get some appointment</p>;
+    }
+
     return (
-      <div className="appointment-page">
-        <p className="no-appointment">No appointment.</p>
-      </div>
+      <ul className="appointment-list">
+        {appointments.map((appointment, index) => (
+          <li key={index} className="appointment-item">
+            <p><strong>Name:</strong> {appointment.name}</p>
+            <p>
+              <strong>Date:</strong> {new Date(appointment.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+            <p><strong>Time:</strong> {appointment.time}</p>
+            <p><strong>Details:</strong> {appointment.details}</p>
+            <button 
+              className="delete-button" 
+              onClick={() => deleteAppointment(index)}>
+              <FaTrash className="trash-icon" /> {}
+            </button>
+          </li>
+        ))}
+      </ul>
     );
-  }
+  };
 
   return (
     <div className="appointment-page">
-      <h1 className="appointment-title">Appointment Details</h1>
-      <div className="appointment-details">
-        <p><strong>Name:</strong> {appointmentData.name}</p>
-        <p><strong>Date:</strong> {new Date(appointmentData.date).toLocaleDateString()}</p>
-        <p><strong>Details:</strong> {appointmentData.details}</p>
-        <p><strong>Time:</strong> {appointmentData.time}</p> 
-      </div>
+      <h1 className="appointment-title">All Appointments</h1>
+      {renderAppointmentList()}
     </div>
   );
 };

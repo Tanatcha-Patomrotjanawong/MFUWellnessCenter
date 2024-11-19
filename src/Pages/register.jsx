@@ -1,82 +1,56 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import '../CSS/Register.css';
+import React, { useEffect, useState } from 'react';
+import '../CSS/ThankYouPage.css';
 
-function Register() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const navigate = useNavigate(); 
+// Import Font Awesome Icons
+import { FaTrash } from 'react-icons/fa';
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
+const ThankYouPage = () => {
+  const [orderList, setOrderList] = useState([]);
 
-    try {
-      const response = await axios.post('http://localhost:4000/register', {
-        name,
-        email,
-        password
-      });
+  useEffect(() => {
+    // Retrieve all pre-orders from localStorage
+    const savedOrders = JSON.parse(localStorage.getItem('preOrderList')) || [];
+    setOrderList(savedOrders);
+  }, []);
 
+  const handleDelete = (index) => {
+    // Remove the selected order from the list
+    const updatedOrders = orderList.filter((_, i) => i !== index);
+    setOrderList(updatedOrders);
 
-      if (response.status === 201) {
-        setMessage(response.data.message);
-
-
-        setTimeout(() => {
-          navigate('/login'); 
-        }, 2000); 
-      }
-    } catch (error) {
-      setMessage(error.response?.data?.message || 'Registration failed');
-    }
+    // Update localStorage
+    localStorage.setItem('preOrderList', JSON.stringify(updatedOrders));
   };
 
+  if (orderList.length === 0) {
+    return (
+      <div className="thank-you-page">
+        <h1 className="thank-you-title">No Pre-orders Available</h1>
+      </div>
+    );
+  }
+
   return (
-    <div className="register-page">
-      <div className="register-container">
-        <div className="register-header">
-          <h2>Register</h2>
-        </div>
-        <form onSubmit={handleRegister}>
-          <div className="input-group">
-            <label>Name</label>
-            <input
-              type="text"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
+    <div className="thank-you-page">
+      <h1 className="thank-you-title">Your Pre-orders</h1>
+      <div className="order-list">
+        {orderList.map((order, index) => (
+          <div key={index} className="order-item">
+            <h2>{order.product.name}</h2>
+            <p><strong>Quantity:</strong> {order.quantity}</p>
+            <p><strong>Additional Details:</strong> {order.details}</p>
+            <p><strong>Order ID:</strong> {order.orderId || 'N/A'}</p>
+            <button
+              className="delete-button"
+              onClick={() => handleDelete(index)}
+            >
+              <FaTrash className="trash-icon" />
+            </button>
           </div>
-          <div className="input-group">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" className="submit-button">Register</button>
-        </form>
-        {message && <p className="message">{message}</p>}
+        ))}
       </div>
     </div>
   );
-}
+};
 
-export default Register;
+export default ThankYouPage;
